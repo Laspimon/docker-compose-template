@@ -10,6 +10,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5000:5000
+    networks:
+      - my_network
   worker:
     environment:
       PYTHONUNBUFFERED: 1
@@ -19,8 +21,16 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5001:5000
+    networks:
+      - my_network
   redis:
     image: 'redis:5.0.6-alpine'
     command: redis-server
     ports:
       - '6379:6379'
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    external: true
