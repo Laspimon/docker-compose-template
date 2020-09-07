@@ -1,2 +1,1 @@
-geocoder
 redis

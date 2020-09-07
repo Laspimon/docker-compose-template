@@ -1,4 +1,3 @@
-import geocoder
 import logging
 import os
 import json

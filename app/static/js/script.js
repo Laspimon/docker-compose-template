@@ -5,7 +5,6 @@ function make_request() {
 
     XHR.addEventListener('load', function(event) {
         let json_data = JSON.parse(event.currentTarget.response);
-        //document.getElementById('response').value = console.log(JSON.stringify(json_data))
         document.getElementById('response').value = json_data['data'];
     });
     XHR.addEventListener('error', function(event) {
