@@ -8,6 +8,8 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
+    volumes:
+      - ./data:/data
     ports:
       - 5000:5000
     networks:

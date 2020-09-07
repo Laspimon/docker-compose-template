@@ -14,8 +14,8 @@ async def greeter():
     """Endpoint for greeting"""
     form = await request.form
     name = request.args.get('name') or form.get('name')
-    with open('../data/visitors.txt', 'w') as f:
-        f.writelines([name])
+    with open('/data/visitors.txt', 'a') as f:
+        f.write(name+'\n')
     pubsub = app.redis.pubsub()
     pubsub.subscribe('response:'+name)
     if name:
